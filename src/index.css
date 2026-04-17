@@ -1,0 +1,249 @@
+:root {
+  --bg-color: #08080a; /* Premium deep black/slate */
+  --bg-color-alt: #101014;
+  --text-primary: #f2f2f2;
+  --text-secondary: #8c8c94;
+  --accent-color: #d1bda2; /* Elegant Linen/Sand for Heritage Fashion */
+  --accent-glow: 0 0 25px rgba(209, 189, 162, 0.25), 0 0 50px rgba(209, 189, 162, 0.1);
+  --glass-bg: rgba(255, 255, 255, 0.025);
+  --glass-border: rgba(255, 255, 255, 0.06);
+  --glass-hover-bg: rgba(255, 255, 255, 0.06);
+  --glass-hover-border: rgba(209, 189, 162, 0.4);
+  --blur: 32px;
+  
+  --font-sans: 'Inter', 'Noto Sans SC', system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+.glow-text {
+  color: var(--accent-color);
+  text-shadow: var(--accent-glow);
+}
+
+/* Base Panel */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--blur));
+  -webkit-backdrop-filter: blur(var(--blur));
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  padding: 2.5rem;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: crosshair; /* Adds to the academic/cyber feel */
+}
+
+/* Add strong hover effect for focus */
+.glass-panel:hover {
+  background: var(--glass-hover-bg);
+  border-color: var(--glass-hover-border);
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 20px rgba(209, 189, 162, 0.05);
+}
+
+.header-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  background: rgba(8, 8, 10, 0.7);
+  border-bottom: 1px solid var(--glass-border);
+  z-index: 1000;
+  padding: 1rem 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-link {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.nav-link:hover, .nav-link.active {
+  color: var(--accent-color);
+}
+
+/* Sections */
+section {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  padding: 8rem 4rem 4rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.section-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.chapter-number {
+  font-size: 10rem;
+  font-weight: 700;
+  opacity: 0.02;
+  position: absolute;
+  top: 4rem;
+  left: 4rem;
+  z-index: -1;
+  pointer-events: none;
+  font-family: monospace;
+}
+
+.slide-subtitle {
+  font-size: 1.1rem;
+  color: var(--accent-color);
+  font-weight: 500;
+  margin-bottom: 1rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.slide-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 3rem;
+  line-height: 1.2;
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  margin-top: 2rem;
+}
+
+.grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+  display: grid;
+  gap: 2rem;
+}
+
+.step-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  padding: 2rem;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: default;
+}
+
+.step-card:hover {
+  background: var(--glass-hover-bg);
+  border-color: var(--glass-hover-border);
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+.pt-text {
+  margin-bottom: 1.5rem;
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  transition: color 0.3s ease;
+}
+
+/* Hovering over a paragraph highlights it slightly */
+.pt-text:hover {
+  color: var(--text-primary);
+}
+
+.pt-text strong, .pt-text .highlight {
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.hero-video-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.2;
+  z-index: -2;
+  filter: grayscale(40%) contrast(1.2) blur(12px); /* Makes video blend nicely into dark mode and obscures text */
+}
+
+/* Elegant minimalist quote */
+.quote-block {
+  font-size: 1.4rem;
+  line-height: 1.8;
+  color: var(--accent-color);
+  font-style: italic;
+  padding-left: 2rem;
+  border-left: 2px solid var(--accent-color);
+  margin: 3rem 0;
+  font-weight: 300;
+  letter-spacing: 0.02em;
+}
+
+/* Utils */
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slide-badge {
+  display: inline-block;
+  padding: 0.3rem 0.8rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  font-family: monospace;
+  letter-spacing: 0.1em;
+  margin-bottom: 1rem;
+}
+
+.page-divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(255,255,255,0.08), transparent);
+  margin: 7rem 0;
+  position: relative;
+}
+
+.page-divider::after {
+  content: "✧";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--text-secondary);
+  font-size: 1rem;
+}
